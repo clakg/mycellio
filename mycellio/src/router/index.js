@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import VideoWatch from '../views/VideoWatch.vue'
 
 Vue.use(VueRouter)
 
@@ -16,12 +17,17 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path: '/video/:id',
+    name: 'video-watch',
+    component: VideoWatch,
+    params: true
   }
 ]
 
-const router = new VueRouter({
-  routes
-})
+const router = new VueRouter({ routes })
 
 export default router
