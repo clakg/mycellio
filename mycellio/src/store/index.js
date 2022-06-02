@@ -13,7 +13,7 @@ export default new Vuex.Store({
         thumbnail:
           'https://vue-screencasts.s3.us-east-2.amazonaws.com/images/video-thumbnails/Thumbnail+-+Arrow+Function.png',
         videoUrl:
-          'https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/38-+es2015-+functions+minus+"function".mp4'
+          'https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/42-+ES2015+template+strings.mp4'
       },
       {
         id: 2,
@@ -31,7 +31,9 @@ export default new Vuex.Store({
         description: `<p>Before modules, javascript code loading was a mess. Now it's pretty amazing.</p>
                       <p>Learn about ES2015 modules and how they work together with ember-cli.</p>`,
         thumbnail:
-          'https://vue-screencasts.s3.us-east-2.amazonaws.com/images/video-thumbnails/Thumbnail+-+ES2015+Modules.png'
+          'https://vue-screencasts.s3.us-east-2.amazonaws.com/images/video-thumbnails/Thumbnail+-+ES2015+Modules.png',
+        videoUrl:
+          'https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/42-+ES2015+template+strings.mp4'
       },
       {
         id: 4,
@@ -39,7 +41,9 @@ export default new Vuex.Store({
         description: `<p>Promises are a tool for handling asynchronous communication, and they are commonly used in Ember applications. They’re even built in to Ember Data, route handling, and other parts of the Ember source.</p>
                       <p>This episode introduces the then, catch, and finally blocks, how to chain them together, and how to use them with either named or anonymous functions.</p>`,
         thumbnail:
-          'https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/EmberScreencast+92+-+Promises+Basics.mp4'
+          'https://vue-screencasts.s3.us-east-2.amazonaws.com/images/video-thumbnails/Thumbnail+-+Decorators.png',
+        videoUrl:
+          'https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/42-+ES2015+template+strings.mp4'
       },
       {
         id: 5,
