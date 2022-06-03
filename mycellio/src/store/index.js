@@ -22,12 +22,16 @@ export default new Vuex.Store({
     async loadVideos({ commit }) {
       let response = await Api().get('/videos');
       let videos = response.data.data;
-      let tags = response.data.included.map(tag => tag);
+      let tags = response.data.included.filter(i => i.type === "tags");
+
       videos.forEach(video => {
         video.attributes.tag_ids = video.relationships.tags.data.map(tag => tag.id)
       });
+
+      tags.forEach(tag => tag.attributes.id = tag.id);
+
       commit('SET_VIDEOS', videos.map(video => video.attributes));
-      commit('SET_TAGS', tags);
+      commit('SET_TAGS', tags.map(tag => tag.attributes));
     }
   },
   modules: {}

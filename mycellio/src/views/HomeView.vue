@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <h1>MyCELLIO</h1>
-    <div v-for="tag in tags" :key="tag.attributes.name">
-      {{tag.attributes.name}}
+    <div v-for="tag in tags" :key="tag.name">
+      {{tag.name}}
     </div>
     <div class="video-container">
       <div v-for="video in videos" v-bind:key="video.id">
@@ -12,8 +12,8 @@
             <div>
               <h3>{{ video.name }}</h3>
               <div v-html="video.description"></div>
-                <div v-for="tagId in video.tag_ids" :key="tagId">
-                  {{ tagId }}
+                <div v-for="tag_id in video.tag_ids" :key="tag_id">
+                  {{ getTag(tag_id).name }}
                 </div>
             </div>
           </div>
@@ -31,6 +31,12 @@ export default {
   computed: {
     ...mapState(['videos','tags']),
   },
+  methods: {
+    getTag(tag_id){
+      console.log('TAG_ID',tag_id,'THIS.TAG', this.tags)
+      return this.tags.find(tag => tag.id === tag_id)
+    }
+  }
 }
 </script>
 
