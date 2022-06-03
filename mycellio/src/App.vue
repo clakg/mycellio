@@ -8,6 +8,15 @@
   </div>
 </template>
 
+<script>
+export default {
+  /* eslint-disable */
+  mounted() {
+    this.$store.dispatch('loadVideos')
+  },
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

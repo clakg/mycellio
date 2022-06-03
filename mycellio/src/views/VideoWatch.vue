@@ -22,10 +22,8 @@ export default {
     VideoPlayer
   },
   computed: {
-    video () {
-      return this.$store.state.videos.find(
-        (vid) => vid.id === this.$route.params.id
-      )
+    video() {
+      return this.$store.state.videos.find(video => video.id == this.$route.params.id) || {}
     },
     playerOptions () {
       return {
