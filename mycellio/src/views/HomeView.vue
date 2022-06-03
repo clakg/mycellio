@@ -5,10 +5,10 @@
       <div v-for="video in videos" v-bind:key="video.id">
         <router-link :to="{ name: 'video-watch', params: { id: video.id } }">
           <div class="video-box">
-            <img :src="video.thumbnail" />
+            <img :src="video.attributes.thumbnail" />
             <div>
-              <h3>{{ video.name }}</h3>
-              <div v-html="video.description"></div>
+              <h3>{{ video.attributes.name }}</h3>
+              <div v-html="video.attributes.description"></div>
             </div>
           </div>
         </router-link>
@@ -18,13 +18,17 @@
 </template>
 
 <script>
-
+/* eslint-disable */
+import Api from '@/services/api'
 export default {
   name: 'HomeView',
   components: {},
-  data () {
-    return {
-      videos: this.$store.state.videos
+  mounted() {
+    this.$store.dispatch('loadVideos')
+  },
+  computed: {
+    videos () {
+      return this.$store.state.videos
     }
   }
 }
