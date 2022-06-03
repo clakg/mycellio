@@ -6,17 +6,15 @@
     </div>
     <div class="video-container">
       <div v-for="video in videos" v-bind:key="video.id">
-        <router-link :to="{ name: 'video-watch', params: { id: video.id } }">
+        <router-link :to="{ name: 'video-watch', params: { id: video.index } }">
           <div class="video-box">
-            <img :src="video.attributes.thumbnail" />
+            <img :src="video.thumbnail" />
             <div>
               <h3>{{ video.name }}</h3>
-              <div v-html="video.attributes.description"></div>
-              <div v-for="tag in tags" :key="tag.attributes.name">
-                <div v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
-                  {{ tag.attributes.name }}
+              <div v-html="video.description"></div>
+                <div v-for="tagId in video.tag_ids" :key="tagId">
+                  {{ tagId }}
                 </div>
-              </div>
             </div>
           </div>
         </router-link>
@@ -31,14 +29,8 @@ import { mapState } from 'vuex'
 export default {
   name: 'HomeView',
   computed: {
-    ...mapState(['videos','tags'])
-    // videos () {
-    //   return this.$store.state.videos
-    // },
-    // tags(){
-    //   return this.$store.state.tags
-    // },
-  }
+    ...mapState(['videos','tags']),
+  },
 }
 </script>
 

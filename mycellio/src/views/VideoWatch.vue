@@ -7,8 +7,8 @@
     >
     </video-player>
     <!-- <img :src="video.thumbnail" alt="video" /> -->
-    <h1>{{ video.attributes.name }}</h1>
-    <div v-html="video.attributes.description"></div>
+    <h1>{{ video.name }}</h1>
+    <div v-html="video.description"></div>
   </div>
 </template>
 
@@ -36,10 +36,10 @@ export default {
         sources: [
           {
             type: 'video/mp4',
-            src: this.video.attributes.videourl
+            src: this.video.videourl
           }
         ],
-        poster: this.video.attributes.thumbnail
+        poster: this.video.thumbnail
       }
     }
   }

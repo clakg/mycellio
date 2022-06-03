@@ -26,7 +26,7 @@ export default new Vuex.Store({
       videos.forEach(video => {
         video.attributes.tag_ids = video.relationships.tags.data.map(tag => tag.id)
       });
-      commit('SET_VIDEOS', videos.map(video => video));
+      commit('SET_VIDEOS', videos.map(video => video.attributes));
       commit('SET_TAGS', tags);
     }
   },
