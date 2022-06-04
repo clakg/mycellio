@@ -26,7 +26,7 @@ export default {
   color: #2c3e50;
 }
 
-nav {
+#nav {
   padding: 30px;
 
   a {
@@ -37,5 +37,14 @@ nav {
       color: #42b983;
     }
   }
+}
+button.tag-button {
+  background-color: #72C9A2;
+  border-radius: 5px;
+  border: 1px;
+  padding: 5px;
+  margin: 5px 10px 0 0;
+  font-size: 12px;
+  cursor : pointer;
 }
 </style>

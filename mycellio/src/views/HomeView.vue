@@ -12,9 +12,9 @@
             <div>
               <h3>{{ video.name }}</h3>
               <div v-html="video.description"></div>
-                <div v-for="tag_id in video.tag_ids" :key="tag_id">
-                  {{ getTag(tag_id).name }}
-                </div>
+              <span v-for="tag_id in video.tag_ids" :key="tag_id">
+                <button class="tag-button">{{ getTag(tag_id).name }}</button>
+              </span>
             </div>
           </div>
         </router-link>
@@ -25,22 +25,17 @@
 
 <script>
 /* eslint-disable */
-import { mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 export default {
   name: 'HomeView',
   computed: {
     ...mapState(['videos','tags']),
+    ...mapGetters(['getTag'])
   },
-  methods: {
-    getTag(tag_id){
-      console.log('TAG_ID',tag_id,'THIS.TAG', this.tags)
-      return this.tags.find(tag => tag.id === tag_id)
-    }
-  }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .video-container {
   .video-box {
     border: 1px solid black;

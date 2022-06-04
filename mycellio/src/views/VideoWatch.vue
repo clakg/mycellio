@@ -6,6 +6,9 @@
       :options="playerOptions"
     >
     </video-player>
+    <span v-for="tag_id in video.tag_ids" :key="tag_id">
+      <button class="tag-button">{{ getTag(tag_id).name }}</button>
+    </span>
     <!-- <img :src="video.thumbnail" alt="video" /> -->
     <h1>{{ video.name }}</h1>
     <div v-html="video.description"></div>
@@ -16,6 +19,7 @@
 /* eslint-disable */
 import 'video.js/dist/video-js.css'
 import VideoPlayer from '@/components/VideoPlayer.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -23,8 +27,9 @@ export default {
   },
   computed: {
     video() {
-      return this.$store.state.videos.find(video => video.id == this.$route.params.id) || {}
+      return this.$store.state.videos.find(videoId => videoId.id == this.$route.params.id) || {}
     },
+    ...mapGetters(['getTag']),
     playerOptions () {
       return {
         height: '360',

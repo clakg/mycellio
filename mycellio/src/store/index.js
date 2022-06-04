@@ -9,7 +9,11 @@ export default new Vuex.Store({
     videos: [],
     tags: []
   },
-  getters: {},
+  getters: {
+    getTag: state => (id) => {
+      return state.tags.find(tag => tag.id == id)
+    }
+  },
   mutations: {
     SET_VIDEOS(state, videos) {
       state.videos = videos
