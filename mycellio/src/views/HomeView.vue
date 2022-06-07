@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <h1>MyCELLIO</h1>
-    <div v-for="tag in tags" :key="tag.name">
-      {{tag.name}}
-    </div>
+    <span v-for="tag in tags" :key="tag.name">
+       <button class="tag-button">{{ tag.name }}</button>
+    </span>
     <div class="video-container">
       <div v-for="video in videos" v-bind:key="video.id">
         <router-link :to="{ name: 'video-watch', params: { id: video.index } }">
