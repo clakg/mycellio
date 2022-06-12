@@ -1,19 +1,19 @@
 <template>
   <div class="home">
     <h1>MyCELLIO</h1>
-    <span v-for="tag in tags" :key="tag.name">
-       <button class="tag-button">{{ tag.name }}</button>
+    <span v-for="tag in tags" :key="tag.attributes.name">
+       <button class="tag-button">{{ tag.attributes.name }}</button>
     </span>
     <div class="video-container">
       <div v-for="video in videos" v-bind:key="video.id">
-        <router-link :to="{ name: 'video-watch', params: { id: video.index } }">
+        <router-link :to="{ name: 'video-watch', params: { id: video.id } }">
           <div class="video-box">
-            <img :src="video.thumbnail" />
+            <img :src="video.attributes.thumbnail" />
             <div>
-              <h3>{{ video.name }}</h3>
-              <div v-html="video.description"></div>
-              <span v-for="tag_id in video.tag_ids" :key="tag_id">
-                <button class="tag-button">{{ getTag(tag_id).name }}</button>
+              <h3>{{ video.attributes.name }}</h3>
+              <div v-html="video.attributes.description"></div>
+              <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
+                <button class="tag-button">{{ getTag(tag_id).attributes.name }}</button>
               </span>
             </div>
           </div>
