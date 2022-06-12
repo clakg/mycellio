@@ -1,16 +1,18 @@
 <template>
     <router-link :to="{ name: 'video-watch', params: { id: video.id } }">
-          <div class="video-box">
-            <img :src="video.attributes.thumbnail" />
-            <div>
-                <h3>{{ video.attributes.name }}</h3>
-                <div v-html="video.attributes.description"></div>
-                <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
-                    <button class="tag-button">{{ getTag(tag_id).attributes.name }}</button>
-                </span>
-            </div>
-          </div>
-        </router-link>
+        <div class="video-box">
+        <img :src="video.attributes.thumbnail" />
+        <div>
+            <h3>{{ video.attributes.name }}</h3>
+            <div v-html="video.attributes.description"></div>
+            <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
+                <router-link :to="{ name:'tag', params: {id: tag_id} }" >
+                <button class="tag-button">{{ getTag(tag_id).attributes.name }}</button>
+                </router-link>
+            </span>
+        </div>
+        </div>
+    </router-link>
 </template>
 
 <script>

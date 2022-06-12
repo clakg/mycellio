@@ -7,9 +7,10 @@
     >
     </video-player>
     <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
-      <button class="tag-button">{{ getTag(tag_id).attributes.name }}</button>
+      <router-link :to="{ name:'tag', params: {id: tag_id} }" >
+        <button class="tag-button">{{ getTag(tag_id).attributes.name }}</button>
+      </router-link>
     </span>
-    <!-- <img :src="video.thumbnail" alt="video" /> -->
     <h1>{{ video.attributes.name }}</h1>
     <div v-html="video.attributes.description"></div>
   </div>
