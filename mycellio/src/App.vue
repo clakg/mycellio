@@ -1,8 +1,10 @@
 <template>
   <v-app>
     <v-app-bar app dark>
-      <v-toolbar-title>
-        <span>MyCellio</span>
+      <v-toolbar-title class="ml-5">
+        <span>
+          <h1>MyCellio</h1>
+        </span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>

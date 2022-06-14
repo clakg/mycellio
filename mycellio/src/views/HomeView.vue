@@ -12,8 +12,10 @@
       </span>
     </div>
     <div>
-      <div v-for="video in videos" :key="video.id">
-        <VideoListItem :video="video"></VideoListItem>
+      <div class="d-flex flex-wrap justify-center">
+        <div v-for="video in videos" :key="video.id">
+          <VideoListItem :video="video"></VideoListItem>
+        </div>
       </div>
     </div>
   </div>
