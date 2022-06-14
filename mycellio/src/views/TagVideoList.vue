@@ -1,11 +1,13 @@
 <template>
     <div>
-        <h1>Videos with Tag "{{ getTag(this.$route.params.id).attributes.name }}"</h1>
-        <span v-for="tag in tags" :key="tag.attributes.id">
-            <router-link :to="{ name:'tag', params: {id: tag.attributes.id} }" >
-                <button class="tag-button">{{ getTag(tag.id).attributes.name }}</button>
-            </router-link>
-        </span>
+        <h1 class="d-flex justify-center my-10">Videos with Tag "{{ getTag(this.$route.params.id).attributes.name }}"</h1>
+        <div class="d-flex justify-center my-10">
+            <span v-for="tag in tags" :key="tag.attributes.id">
+                <router-link :to="{ name:'tag', params: {id: tag.attributes.id} }" class="text-decoration-none">
+                    <v-btn dark rounded class="tag-button mx-2">{{ getTag(tag.id).attributes.name }}</v-btn>
+                </router-link>
+            </span>
+        </div>
         <div v-for="video in videosOnTag" :key="video">
             <video-list-item :video="video"></video-list-item>
         </div>

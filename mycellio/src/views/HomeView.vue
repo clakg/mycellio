@@ -1,14 +1,19 @@
 <template>
   <div class="home">
-    <h1>MyCellio</h1>
-    <span v-for="tag in tags" :key="tag.attributes.id">
-      <router-link :to="{ name:'tag', params: {id: tag.attributes.id} }" >
-        <button class="tag-button">{{ getTag(tag.id).attributes.name }}</button>
-      </router-link>
-    </span>
-    <div class="video-container">
-      <div v-for="video in videos" v-bind:key="video.id">
-         <VideoListItem :video="video"></VideoListItem>
+
+    <h1 class="display-4 ma-4 d-flex justify-center my-10">
+      Toutes les vidéos
+    </h1>
+    <div class="d-flex justify-center my-10">
+      <span v-for="tag in tags" :key="tag.attributes.id">
+        <router-link :to="{ name:'tag', params: {id: tag.attributes.id} }" class="text-decoration-none">
+          <v-btn dark rounded class="tag-button mx-2">{{ getTag(tag.id).attributes.name }}</v-btn>
+        </router-link>
+      </span>
+    </div>
+    <div>
+      <div v-for="video in videos" :key="video.id">
+        <VideoListItem :video="video"></VideoListItem>
       </div>
     </div>
   </div>
@@ -16,19 +21,20 @@
 
 <script>
 /* eslint-disable */
-import { mapGetters, mapState } from 'vuex'
-import VideoListItem from '@/components/VideoListItem.vue'
+import { mapState, mapGetters } from 'vuex';
+import VideoListItem from '@/components/VideoListItem.vue';
 export default {
-    name: "HomeView",
-    computed: {
-        ...mapState(["videos", "tags"]),
-        ...mapGetters(['getTag'])
-    },
-    components: { VideoListItem }
-}
+  name: "home",
+  components: {
+    VideoListItem
+},
+  methods: {},
+  computed: {
+    ...mapState(['videos', 'tags']),
+    ...mapGetters(['getTag'])
+  }
+};
 </script>
 
 <style scoped lang="scss">
-/* .video-container {
-} */
 </style>

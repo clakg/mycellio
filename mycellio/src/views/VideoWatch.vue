@@ -8,7 +8,7 @@
     </video-player>
     <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
       <router-link :to="{ name:'tag', params: {id: tag_id} }" >
-        <button class="tag-button">{{ getTag(tag_id).attributes.name }}</button>
+        <button dark rounded class="tag-button">{{ getTag(tag_id).attributes.name }}</button>
       </router-link>
     </span>
     <h1>{{ video.attributes.name }}</h1>
