@@ -18,7 +18,9 @@
         <div class="mb-10">
           <h1>{{ video.attributes.name }}</h1>
         </div>
-        <div v-html="video.attributes.description"></div>
+        <div class="d-flex justify-center video-description m-20">
+          <div v-html="video.attributes.description"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -70,6 +72,8 @@ export default {
 .container-video-watch{
   margin-top: 50px;
   margin-bottom: 50px;
-   height: 50%;
+}
+.video-description{
+  width: 60%;
 }
 </style>
