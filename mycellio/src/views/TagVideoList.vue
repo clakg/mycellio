@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="d-flex justify-center my-10">Videos with Tag "{{ getTag(this.$route.params.id).attributes.name }}"</h1>
+        <h1 class="display-3 ma-4 d-flex justify-center my-10">Videos with Tag "{{ getTag(this.$route.params.id).attributes.name }}"</h1>
         <div class="d-flex justify-center my-10">
             <span v-for="tag in tags" :key="tag.attributes.id">
                 <router-link :to="{ name:'tag', params: {id: tag.attributes.id} }" class="text-decoration-none">
@@ -8,8 +8,12 @@
                 </router-link>
             </span>
         </div>
-        <div v-for="video in videosOnTag" :key="video">
-            <video-list-item :video="video"></video-list-item>
+        <div class="ml-8 pl-8">
+            <div class="d-flex flex-wrap">
+                <div v-for="video in videosOnTag" :key="video">
+                    <video-list-item :video="video"></video-list-item>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -33,3 +37,6 @@ export default {
     }
 }
 </script>
+
+<style scoped lang="scss">
+</style>

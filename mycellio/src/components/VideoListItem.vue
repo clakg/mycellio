@@ -1,5 +1,5 @@
 <template>
-    <v-card hover :to="{ name: 'video-watch', params: { id: video.id } }" class="text-decoration-none mx-2 mb-10" max-width="400" height="450">
+    <v-card hover :to="{ name: 'video-watch', params: { id: video.id } }" class="text-decoration-none mx-2 mb-10" max-width="350" height="450">
         <v-img :src="video.attributes.thumbnail" height="240px"/>
         <div class="pa-5">
             <h3 class="black--text">{{ video.attributes.name }}</h3>

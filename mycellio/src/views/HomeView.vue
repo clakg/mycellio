@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-
+  <div>
     <h1 class="display-4 ma-4 d-flex justify-center my-10">
       Toutes les vidéos
     </h1>
@@ -11,11 +10,9 @@
         </router-link>
       </span>
     </div>
-    <div>
-      <div class="d-flex flex-wrap justify-center">
-        <div v-for="video in videos" :key="video.id">
-          <VideoListItem :video="video"></VideoListItem>
-        </div>
+    <div class="d-flex flex-wrap ml-8 pl-8">
+      <div v-for="video in videos" :key="video.id">
+        <VideoListItem :video="video"></VideoListItem>
       </div>
     </div>
   </div>

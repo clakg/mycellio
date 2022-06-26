@@ -1,18 +1,26 @@
 <template>
-  <div>
+  <div class="container-video-watch">
     <video-player
-      class="video-player-box"
+      class="video-player-box mt-20"
       ref="videoPlayer"
       :options="playerOptions"
     >
     </video-player>
-    <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
-      <router-link :to="{ name:'tag', params: {id: tag_id} }" >
-        <button dark rounded class="tag-button">{{ getTag(tag_id).attributes.name }}</button>
-      </router-link>
-    </span>
-    <h1>{{ video.attributes.name }}</h1>
-    <div v-html="video.attributes.description"></div>
+    <div class="d-flex flex-column justify-center">
+      <div class="d-flex flex-row justify-center mb-10">
+        <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
+          <router-link :to="{ name:'tag', params: {id: tag_id} }" class="text-decoration-none">
+            <v-btn dark rounded class="tag-button mx-2">{{ getTag(tag_id).attributes.name }}</v-btn>
+          </router-link>
+        </span>
+      </div>
+      <div class="d-flex flex-column align-center">
+        <div class="mb-10">
+          <h1>{{ video.attributes.name }}</h1>
+        </div>
+        <div v-html="video.attributes.description"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,7 +41,7 @@ export default {
     ...mapGetters(['getTag']),
     playerOptions () {
       return {
-        height: '360',
+        height: '500',
         autoplay: true,
         muted: true,
         controls: true,
@@ -54,6 +62,14 @@ export default {
 
 <style>
 .video-player-box .video-js {
-  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-video-watch{
+  margin-top: 50px;
+  margin-bottom: 50px;
+   height: 50%;
 }
 </style>
