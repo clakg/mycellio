@@ -1,29 +1,31 @@
 <template>
-  <div class="container-video-watch">
-    <video-player
-      class="video-player-box mt-20"
-      ref="videoPlayer"
-      :options="playerOptions"
-    >
-    </video-player>
-    <div class="d-flex flex-column justify-center">
-      <div class="d-flex flex-row justify-center mb-10">
-        <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
-          <router-link :to="{ name:'tag', params: {id: tag_id} }" class="text-decoration-none">
-            <v-btn dark rounded class="tag-button mx-2">{{ getTag(tag_id).attributes.name }}</v-btn>
-          </router-link>
-        </span>
-      </div>
-      <div class="d-flex flex-column align-center">
+  <v-container class="container-video-watch">
+    <v-row class="mb-15">
+      <v-col sm="12" md="9" lg="9" cols="12">
+        <video-player
+          class="video-player-box mt-20"
+          ref="videoPlayer"
+          :options="playerOptions"
+        >
+        </video-player>
+      </v-col>
+      <v-col sm="12" md="3" lg="3" cols="12">
         <div class="mb-10">
+          <div class="mb-10">
+            <span v-for="tag_id in video.attributes.tag_ids" :key="tag_id">
+              <router-link :to="{ name:'tag', params: {id: tag_id} }" class="text-decoration-none">
+                <v-btn dark rounded class="tag-button mr-2">{{ getTag(tag_id).attributes.name }}</v-btn>
+              </router-link>
+            </span>
+          </div>
           <h1>{{ video.attributes.name }}</h1>
         </div>
         <div class="d-flex justify-center video-description m-20">
           <div v-html="video.attributes.description"></div>
         </div>
-      </div>
-    </div>
-  </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -62,18 +64,18 @@ export default {
 }
 </script>
 
-<style>
-.video-player-box .video-js {
+<style lang="scss">
+/* .video-player-box .video-js {
   margin-top: 50px;
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 .container-video-watch{
   margin-top: 50px;
   margin-bottom: 50px;
 }
-.video-description{
+/* .video-description{
   width: 60%;
-}
+} */
 </style>
